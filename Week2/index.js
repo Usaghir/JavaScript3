@@ -1,5 +1,6 @@
 'use strict';
 
+// Fetch data from github API.
 {
   function fetchJSON(url) {
     return new Promise((resolve, reject) => {
