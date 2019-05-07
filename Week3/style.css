@@ -1,0 +1,119 @@
+.alert-error {
+  color: #721c24;
+  background-color: #f8d7da;
+}
+
+body {
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  margin-top: 0;
+  background-color: #f8f8f8;
+  width: 900px;
+}
+
+.mainContainerClass {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+@media (max-width: 767px) {
+  body {
+    width: 100%;
+  }
+  #mainContainerClass {
+    margin: 0;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.topBoxClass {
+  color: white;
+  background-color: #3f51b5;
+  padding: 8px 16px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.topTextClass {
+  margin-left: 40px;
+  font-size: 30px;
+  font-family: 'Trebuchet MS';
+  width: 350px;
+  height: 32px;
+  padding: 2px;
+}
+
+.repsSelectClass {
+  margin-left: 30px;
+  font-size: 18px;
+  width: 350px;
+  height: 32px;
+  padding: 2px;
+}
+
+.leftClass, .rightClass {
+  background-color: white;
+  flex: 1;
+  padding: 16px;
+  margin-right: 16px;
+  margin-bottom: 8px;
+  border: none;
+  border-radius: 2px;
+  background-color: white;
+  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.12)
+}
+
+.leftDetailClass {
+  table-layout: fixed;
+  color: rgb(0, 0, 0, 81%);
+}
+
+@media (max-width: 767px) {
+  .leftClass {
+    margin: 0;
+  }
+}
+
+#contTextID {
+  font-size: 0.9rem;
+  color: rgb(0, 0, 0, 54%);
+  padding: 8px 16px 4px 16px;
+}
+
+.contDataClass {
+  border-bottom: solid 1px rgb(0, 0, 0, 12%);
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+
+.contImgClass {
+  border-radius: 3px;
+  margin-right: 16px;
+  height: 48px;
+}
+
+.contDetailClass {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.contBadgeClass {
+  font-size: 12px;
+  padding: 2px 8px;
+  line-height: 1rem;
+  background-color: gray;
+  color: white;
+  border-radius: 4px;
+}
