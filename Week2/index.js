@@ -1,6 +1,5 @@
 'use strict';
 
-// Fetch data from github API.
 {
   function fetchJSON(url) {
     return new Promise((resolve, reject) => {
@@ -59,11 +58,12 @@
     createAndAppend('li', leftDetailID, { text: `Updated:  ${updatedAt}` });
   }
   function loadContributor(element) {
-    fetchJSON(element.contributors_url, (err, data) => {
-      const root = document.getElementById('root');
-      if (err) {
-        createAndAppend('div', root, { text: err.message, class: 'alert-error' });
-      } else {
+    const root = document.getElementById('root');
+    fetchJSON(element.contributors_url)
+      .catch(reject => {
+        createAndAppend('div', root, { text: reject.message, class: 'alert-error' });
+      })
+      .then(data => {
         const rightID = document.getElementById('rightID');
         createAndAppend('p', rightID, { id: 'contTextID', text: 'Contributors' });
         createAndAppend('ul', rightID, { id: 'contListID', class: 'contListClass' });
@@ -101,16 +101,16 @@
             class: 'contBadgeClass',
           });
         }
-      }
-    });
+      });
   }
 
   function main(url) {
-    fetchJSON(url, (err, data) => {
-      const root = document.getElementById('root');
-      if (err) {
-        createAndAppend('div', root, { text: err.message, class: 'alert-error' });
-      } else {
+    const root = document.getElementById('root');
+    fetchJSON(url)
+      .catch(reject => {
+        createAndAppend('div', root, { text: reject.message, class: 'alert-error' });
+      })
+      .then(data => {
         createAndAppend('header', root, { id: 'topBoxID', class: 'topBoxClass' });
         const topBoxID = document.getElementById('topBoxID');
         createAndAppend('p', topBoxID, {
@@ -155,8 +155,7 @@
           loadDetail(data[i]);
           loadContributor(data[i]);
         };
-      }
-    });
+      });
   }
 
   const HYF_REPS_URL = 'https://api.github.com/orgs/HackYourFuture/repos?per_page=100';
